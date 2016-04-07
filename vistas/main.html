@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Decanato deInvestigación y Extensión">
+    <meta name="author" content="@Ing. Jhonny Córdova">
+
+    <title>{titulo}</title>
+    
+    <link href="/investigacion/publico/frontend/css/bootstrap.css" rel="stylesheet">
+    <link href="/investigacion/publico/frontend/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/investigacion/publico/frontend/css/carousel.css">
+    <link href="/investigacion/publico/frontend/css/paneles.css" rel="stylesheet">
+    <link href="/investigacion/publico/frontend/css/avisos.css" rel="stylesheet">
+    <link href="/investigacion/publico/frontend/css/alerts.css" rel="stylesheet">
+    <link href="/investigacion/publico/frontend/css/dropdown-submenu.css" rel="stylesheet">
+    <link href="/investigacion/publico/admin/css/select2.css" rel="stylesheet">
+    <link href="/investigacion/publico/admin/css/select2-bootstrap.css" rel="stylesheet">
+    <link href="/investigacion/publico/frontend/css/eventoestilo.css" rel="stylesheet">
+    <link href="/investigacion/publico/frontend/css/cuadritos.css" rel="stylesheet">
+    
+     <link href="/investigacion/publico/admin/assets/fullcalendar/fullcalendar/bootstrap-fullcalendar.css" rel="stylesheet" />
+    
+    
+    <script src="/investigacion/publico/frontend/js/jquery.min.js"></script>
+    <script src="/investigacion/publico/frontend/js/docs.min.js"></script>
+    <script src="/investigacion/publico/frontend/js/bootstrap.min.js"></script>
+    <script src="/investigacion/publico/frontend/js/dropdown.js"></script>
+    <script src="/investigacion/publico/frontend/js/carousel.js"></script>
+    <script src="/investigacion/publico/frontend/js/paneles.js"></script>
+    <script src="/investigacion/publico/admin/js/select2.js"></script>
+    <script type="text/javascript" src="/investigacion/publico/admin/js/jquery.validate.min.js"></script>
+    <script src="/investigacion/publico/admin/js/numeros_letras.js"></script>
+     <script src="/investigacion/publico/admin/js/form-validation-script.js"></script>
+     <script src="/investigacion/publico/admin/assets/fullcalendar/fullcalendar/fullcalendar.js"></script>
+
+
+
+   
+</head>
+
+<body style="height:100%;">
+    
+    <!-- Banner -->
+    <div class="container">
+        <div class="banner">
+            <a href="/investigacion/inicio/"><img src="/investigacion/publico/frontend/img/banner_128.gif" class="img-responsive"></a>
+        </div>
+    </div>
+    <!-- Fin del Banner-->
+
+
+    <!-- Fixed navbar -->
+    <div class="container">
+        <nav class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          
+          
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+           
+            <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Decanato
+                </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/investigacion/decanato_pub/mision/">Misión</a></li>
+                <li><a href="/investigacion/decanato_pub/vision/">Visión</a></li>
+                <li><a href="/investigacion/autoridades_pub/ver/">Autoridades</a></li>
+                
+              </ul>
+            </li>
+
+            <li><a href="/investigacion/jornadas_pub/ver/">Jornadas de InvExt</a></li>
+
+
+            <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Investigación
+                </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/investigacion/programas_pub/pinvestigacion/">Programa de Investigación</a></li>
+                <li><a href="/investigacion/centros_pub/vercentros/">Centros de Investigación</a></li>
+                <li><a href="/investigacion/lineas_pub/linvestigacion/">Líneas</a></li>
+                <li><a href="/investigacion/proyectos_pub/pinvestigacion/">Proyectos</a></li>
+                <li><a href="/investigacion/investigadores_pub/iinvestigacion/">Investigadores</a></li>
+              </ul>
+            </li>
+
+             <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        Extensión
+                </a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/investigacion/programas_pub/pextension/">Programa de Extensión</a></li>
+                <li><a href="/investigacion/lineas_pub/lextension/">Líneas</a></li>
+                <li><a href="/investigacion/proyectos_pub/pextension/">Proyectos</a></li>
+                <li><a href="/investigacion/investigadores_pub/iextension/">Extensionistas</a></li>
+              </ul>
+            </li>
+            
+            <li class="">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Eventos 
+                </a>
+                    <ul class="dropdown-menu multi-level">
+                       
+                        <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Auditorio</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/investigacion/eventos_pub/verEventos/?id_espacio=1">Actividades</a></li>
+                                <li><a href="/investigacion/calendarios_pub/ver/?id_espacio=1">Calendario</a></li>
+                                <li><a href="/investigacion/normas_pub/ver/?id_espacio=1">Normas</a></li>
+                               
+                            </ul>
+                        </li>
+
+                         <li class="dropdown-submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Salón Usos Múltiples</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/investigacion/eventos_pub/verEventos/?id_espacio=2">Actividades</a></li>
+                                <li><a href="/investigacion/calendarios_pub/ver/?id_espacio=2">Calendario</a></li>
+                                <li><a href="/investigacion/normas_pub/ver/?id_espacio=2">Normas</a></li>
+                               
+                            </ul>
+                        </li>
+
+                        <li><a href="/investigacion/solic_esp_pub/solicitud/">Solicitud en Línea</a></li>
+                        <li><a href="/investigacion/solic_esp_pub/estadoSol/">Consultar Estado de Solicitud</a></li>
+                    </ul>
+              </li>
+
+            <li><a href="http://nexos.unerg.edu.ve/portal/">Revista NEXOS</a></li>
+            <li><a href="/investigacion/login/">Gestión</a></li>
+            
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    </div>
+    
+
+
+    <div class="container" style="min-height:100%">
+        <!-- The carousel -->
+       
+                  
+            {contenido}
+
+            <div class="col-md-4 hidden-xs" style="padding-left:-1px;padding-right:0px;display:{login}">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" align="center">Productos Digitales</h3>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                    </div>
+                    <div class="panel-body">
+                        
+                        <div class="col-md-12">
+                            <a href="#" class="thumbnail">
+                              <img src="/investigacion/publico/frontend/img/nexos.jpg">
+                            </a>
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </div>
+             <div class="col-md-4 hidden-xs" style="padding-right:0px;padding-left:-1px;display:{login};float:right;">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" align="center">Enlaces de Interés</h3>
+                        <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+                    </div>
+                    <div class="panel-body">
+                        
+                       <ul>
+                           <li><a href="#">AIS-UNERG</a></li>
+                           <li><a href="#">UNERG</a></li>
+                       </ul>
+
+                    </div>
+                </div>
+            </div>
+
+                
+    </div>
+
+    <br><br><br><br>
+     <!-- Footer -->
+    
+  
+      <div class="container hidden-md hidden-xs" style="position:fixed;">
+         <div class="navbar navbar-default navbar-fixed-bottom"  style="margin-left:8%;margin-right:8%;"  >
+           
+                 <p class="navbar-text2">
+                <br>Universidad Nacional Experimental de los Llanos Centrales Rómulo Gallegos, Página Oficial.  RIF: G-20003225-1<br>
+              </p>
+            
+        </div>
+     </div>
+
+     <div class="container visible-xs" style="">
+         <div class="navbar navbar-default navbar-fixed-bottom " >
+           
+                 <p class="navbar-text2">
+                <br>Universidad Nacional Experimental de los Llanos Centrales Rómulo Gallegos, Página Oficial.  RIF: G-20003225-1<br>
+              </p>
+            
+        </div>
+     </div>
+  <!-- 
+    <script type="text/javascript">
+                  $(document).ready(function(){
+
+                  $('select').select2();
+             
+
+                  });
+    </script>
+    -->
+  
+</body>
+
+</html>

@@ -1,0 +1,360 @@
+<br><div class="row">
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             Agregar Nuevo Usuario
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="reg-usuario" method="POST" action="/investigacion/usuarios/crear/">
+                                   <div class="form-group ">
+                                      <label for="usuario" class="control-label col-lg-4">Nombre de Usuario</label>
+                                      <div class="col-lg-8 input-group " style="margin-top:-26px">
+                                          <input type="text" id="usuario" name="usuario"  class="form-control">
+                                          <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button" id="buscar" data-placement="bottom" data-toggle="tooltip" title="Buscar usuario para poder modificar"><i class="fa fa-search"></i></button>
+                                          </span>
+                                      </div>
+                                                                          
+                                    </div>
+                                    <div id="datos" style="display:none">
+                                      <div class="form-group ">
+                                          <label for="firstname" class="control-label col-lg-4">Nombres</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="nom_usu" name="nom_usu" type="text" />
+                                          </div>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="lastname" class="control-label col-lg-4">Apellidos</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="ape_usu" name="ape_usu" type="text" />
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="form-group ">
+                                          <label for="password" class="control-label col-lg-4">Contraseña</label>
+                                          <div class="col-lg-8">
+                                              <input class="form-control " id="clave" name="clave" type="password" />
+                                          </div>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="confirm_password" class="control-label col-lg-4">Confirmar Contraseña</label>
+                                          <div class="col-lg-8">
+                                              <input class="form-control " id="confirm_clave" name="confirm_clave" type="password" />
+                                          </div>
+                                      </div>
+                                          
+                                        <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="email_usu[]" class="control-label col-lg-4">Correo Electrónico</label>
+
+                                          <div class="form-group input-group col-lg-8">
+
+                                            <input type="text" name="email_usu[]" id="email_usu[]" class="form-control">
+                                              <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+                                              </button></span>
+                                          </div>
+                                        </div>
+                                       
+
+                                      <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="tel_usu[]" class="control-label col-lg-4">Teléfono</label>
+                                          <div class="form-group input-group col-lg-8">
+                                              <input class="form-control" id="tel_usu[]" name="tel_usu[]" type="text"  />   <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+                                              </button></span>
+                                          </div>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="estado" class="control-label col-lg-4">Estado</label>
+                                          <div class="col-lg-8">
+                                            <div id="radioBtn" class="btn-group">
+                                              <a class="btn btn-primary btn active" data-toggle="estado" data-title="A">Activo</a>
+                                              <a class="btn btn-primary btn notActive" data-toggle="estado" data-title="I">Inactivo</a>
+                                            </div>
+                                            <input type="hidden" value="A" name="estado" id="estado">
+                                          </div>
+                                          
+                                      </div>
+                                  <!--
+                                      <div class="form-group "> 
+                                        <label for="permisos" class="control-label col-lg-4">Permisos para:</label>
+                                       <div class="checkboxes col-lg-8">
+                                              <label class="label_check" for="checkbox-01">
+                                                  <input name="modulo[]" id="checkbox-01" value="001" type="checkbox"  /> Gestión de Contenido General
+                                              </label>
+                                              <label class="label_check" for="checkbox-02">
+                                              <input name="modulo[]" id="checkbox-02" value="002" type="checkbox"  /> Gestión de Auditorio </label>
+                                              <label class="label_check" for="checkbox-03">
+                                              <input name="modulo[]" id="checkbox-03" value="003" type="checkbox" /> Gestión de Revista</label>
+
+                                        </div>
+                                      </div>
+                                    -->
+
+                                     <div class="[ form-group ]" style="display:{super}">
+                                        <label for="permisos" class="control-label col-lg-4">Permisos para:</label>
+                                        <div class="col-lg-8">
+                                             <input type="checkbox" name="permiso[]" id="modulo" autocomplete="off" value="001" />
+                                            <div class="[ btn-group ]">
+                                                <label for="modulo" class="[ btn btn-success ]">
+                                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                                    <span></span>
+                                                </label>
+                                                <label for="modulo" class="[ btn btn-default  ]">
+                                                    Gestión de Contenido General
+                                                </label>
+                                            </div>
+
+
+                                            <input type="checkbox" name="permiso[]" id="modulo2" autocomplete="off" value="002" />
+                                            <div class="[ btn-group ]">
+                                                <label for="modulo2" class="[ btn btn-success ]">
+                                                    <span class="[ glyphicon glyphicon-ok ]"></span>
+                                                    <span> </span>
+                                                </label>
+                                                <label for="modulo2" class="[ btn btn-default  ]">
+                                                    Gestión de Espacios&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                                </label>
+                                            </div>
+
+                                             
+                                        </div>
+                                           
+                                    </div>
+
+                                    </div>
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar">Registrar</button>
+                                              <a href="/investigacion/usuarios/registrar/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+             <script type="text/javascript">
+                $(document).ready(function(){
+
+                $('#registrar').attr({
+                    disabled: true
+                });
+
+
+
+                $('#buscar').click(function() {
+                
+                var usuario = $('#usuario').val();
+                if(usuario != ''){
+                    $.getJSON('/investigacion/usuarios/buscarUsuario/?usuario='+usuario, function(data) {
+                        $.each( data , function(k, v){
+                            if(v.resp == false){
+                                $('#usuario').attr({
+                                    readonly: 'true'
+                                });
+                                $('#registrar').attr({
+                                    disabled : false
+                                });
+                                $('#datos').show('slow/2000/fast');
+                            }else if(v.resp == true){
+                                alertify.alert('<p align="center"><b>Este Usuario Ya Existe, Pruebe con Otro</b></p>');
+                                $('#usuario').focus();
+                            }
+                        });
+                    }).error(function(data) {
+                        window.alert('Error: ' + data.responseText);
+                    });
+                }else{
+                    alertify.alert('<p align="center"><b>¡Ingrese un Nombre de Usuario!</b></p>');
+                }
+
+                });
+
+                });
+                </script>
+
+
+              <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+
+
+              <script type="text/javascript">
+        // ==============================
+        // Standard Dialogs
+        $("alert").onclick = function () {
+            reset();
+            alertify.alert("Mensaje de Alerta! :D");
+            return false;
+        };
+
+        $("confirm").onclick = function () {
+            reset();
+            alertify.confirm("This is a confirm dialog", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        $("prompt").onclick = function () {
+            reset();
+            alertify.prompt("This is a prompt dialog", function (e, str) {
+                if (e) {
+                    alertify.success("You've clicked OK and typed: " + str);
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            }, "Default Value");
+            return false;
+        };
+
+        // ==============================
+        // Standard Dialogs
+        $("notification").onclick = function () {
+            reset();
+            alertify.log("Standard log message");
+            return false;
+        };
+
+        $("success").onclick = function () {
+            reset();
+            alertify.success("Success log message");
+            return false;
+        };
+
+        $("error").onclick = function () {
+            reset();
+            alertify.error("Error log message");
+            return false;
+        };
+
+        // ==============================
+        // Custom Properties
+        $("delay").onclick = function () {
+            reset();
+            alertify.set({ delay: 10000 });
+            alertify.log("Hiding in 10 seconds");
+            return false;
+        };
+
+        $("forever").onclick = function () {
+            reset();
+            alertify.log("Will stay until clicked", "", 0);
+            return false;
+        };
+
+        $("labels").onclick = function () {
+            reset();
+            alertify.set({ labels: { ok: "Accept", cancel: "Deny" } });
+            alertify.confirm("Confirm dialog with custom button labels", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        $("focus").onclick = function () {
+            reset();
+            alertify.set({ buttonFocus: "cancel" });
+            alertify.confirm("Confirm dialog with cancel button focused", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        $("order").onclick = function () {
+            reset();
+            alertify.set({ buttonReverse: true });
+            alertify.confirm("Confirm dialog with reversed button order", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        // ==============================
+        // Custom Log
+        $("custom").onclick = function () {
+            reset();
+            alertify.custom = alertify.extend("custom");
+            alertify.custom("I'm a custom log message");
+            return false;
+        };
+    </script>
+
+
+
+
+             
+
+                               
+             
+
+       

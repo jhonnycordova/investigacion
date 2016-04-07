@@ -1,0 +1,76 @@
+<br> <div class="row">
+
+    <form action="/investigacion/decanato/editar/" class="form-horizontal" method="POST" id="info_decanato">
+      <div class="col-lg-10">
+          <section class="panel">
+          {mensaje}
+          <br>
+              <header class="panel-heading">
+                  Misión
+              </header>
+
+              <div class="panel-body">
+                  <div class="form">
+                      
+                          <div class="form-group">
+                              
+                              <div class="col-sm-12">
+                                  <textarea class="form-control ckeditor" name="mision" id="mision" rows="3" >{mision}</textarea>
+                              </div>
+                          </div>
+                      
+                  </div>
+              </div>
+          </section>
+      </div>
+
+       <div class="col-lg-10">
+          <section class="panel">
+              <header class="panel-heading">
+                  Visión
+              </header>
+              <div class="panel-body">
+                  <div class="form">
+                      
+                          <div class="form-group">
+                              
+                              <div class="col-sm-12">
+                                  <textarea class="form-control ckeditor" name="vision" id="vision" rows="3">{vision}</textarea>
+                              </div>
+                          </div>
+                      
+                  </div>
+              </div>
+          </section>
+      </div>
+
+      <div class="col-lg-10">
+        <section class="panel">
+         <div class="panel-body">
+          
+            <div class="form-group ">
+                <label for="email_dec" class="control-label col-lg-3">Correo Electrónico</label>
+                <div class="col-lg-4">
+                    <input class=" form-control" id="email_dec" name="email_dec" type="text" value="{email_dec}" />
+                </div>
+            </div>
+
+             <div class="form-group ">
+                <label for="email_dec" class="control-label col-lg-3">Fec. Últ. Actualización</label>
+                <div class="col-lg-4">
+                    <input class=" form-control" id="fec_ult_act" name="fec_ult_act" type="text" readonly="" value="{fec_ult_act}" />
+                </div>
+            </div>
+
+           <div class="form-group" align="center">
+              <div class="col-lg-offset-2 col-lg-10">
+                  <button class="btn btn-danger" type="submit" id="modificar">Guardar Cambios</button>
+                  <a href="/investigacion/gcontenido/index  /" class="btn btn-default">Cancelar</a>
+              </div>
+          </div>
+         </div> 
+        </section>
+         
+      </div>
+    </form>
+  </div>

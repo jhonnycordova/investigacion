@@ -1,0 +1,223 @@
+<br><div class="row">
+                  <div class="col-lg-10">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="reg-eventos" method="POST" action="/investigacion/solic_esp/editar/">
+                                   
+                                      <input type="hidden" name="id_evento" id="id_evento" value="{id_evento}">
+                                      <input type="hidden" name="cod_sol" id="cod_sol" value="{cod_sol}">
+
+                                      <div class="form-group ">
+                                          <label for="nom_evento" class="control-label col-lg-2">Nombre del Evento</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="nom_evento" name="nom_evento" type="text" value="{nom_evento}" required />
+                                          </div>
+                                      </div>
+
+                                      {dias} 
+
+                                       <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-2">Objetivos</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="obj_evento" id="obj_evento" rows="3"  >{obj_evento}</textarea>
+                                            </div>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-2">Ponentes</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="pon_evento" id="pon_evento" rows="3"  >{pon_evento}</textarea>
+                                            </div>
+                                        </div>
+
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Participación</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="participacion" id="participacion" onchange="funsel2(this);" required>
+                                              
+                                              <option value ="1" {libre}>Entrada Libre</option>
+                                              <option value ="2" {inv}>Inversión</option>
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                       <div class="form-group " style="display:{si}" id="inver">
+                                          <label for="inversion" class="control-label col-lg-2">Inversión (Bs.)</label>
+                                          <div class="col-lg-6">
+                                              <input class=" form-control" id="inversion" name="inversion" type="number" value="{inversion}" />
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Tipo de Evento</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_tipo" id="id_tipo" required>
+                                              
+                                              {tipoeveactual}
+                                              {tipoeventos}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Tipo de Público</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_publico" id="id_publico" required>
+                                              
+                                              {tipopubactual}
+                                              {tipopublicos}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Espacio</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_espacio" id="id_espacio" required >
+                                              
+                                              {espacioactual}
+                                              {espacios}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                       <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Área Responsable</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_area" id="id_area" >
+
+                                              
+                                              {areaactual}
+                                              {areas}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      
+
+
+                                      
+                                          
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit"  id="registrar">Modificar</button>
+                                              <a href="/investigacion/solic_esp/verdatos/" onclick="waitingDialog.show('Cargando Solicitudes', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+              <script type="text/javascript">
+                  function funsel2(sel) {
+                      var participacion = sel.value
+                      
+                      if (participacion == 2) {
+                         
+                          $('#inver').show('slow/2000/fast');
+                          
+                          
+                      }else{
+                          $('#inver').hide('slow/2000/fast');
+                          $("#inversion").val("");
+                      }
+                  }
+
+                 
+              </script>
+
+                <script type="text/javascript">
+                        $(document).ready(function(){
+
+                        $('#id_area').select2();
+                        $('#est_evento').select2();
+                        $('#participacion').select2();
+                        $('#id_tipo').select2();
+                        $('#id_publico').select2();
+                        $('#id_espacio').select2();
+
+                   
+
+                        });
+                  </script>
+
+               <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+
+
+             
+
+                               
+             
+
+       

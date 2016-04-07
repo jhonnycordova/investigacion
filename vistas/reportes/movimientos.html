@@ -1,0 +1,72 @@
+<br><div class="row">
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          {mensaje}
+                          <br>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="movimientos" method="POST" action="/investigacion/reportes/buscarDatos/">
+                                   
+                                    
+                                      <div class="form-group ">
+                                          <label for="cargos" class="control-label col-lg-4">Usuario</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="usuario" id="usuario">
+                                              <option value =""></option>
+                                              {usuarios}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                       <div class="form-group">
+                                          <label class="control-label col-lg-4">Rango de Fecha</label>
+                                          <div class="col-lg-8">
+                                              <div class="input-group input-large" data-date="16-01-2000" data-date-format="dd-mm-yyyy">
+                                                  <span class="input-group-addon">Desde</span>
+                                                 <input class="form-control form-control-inline input-medium default-date-picker"  size="19" type="text" name="fec_des" id="fec_des" />
+                                                  <span class="input-group-addon">Hasta</span>
+                                                  <input class="form-control form-control-inline input-medium default-date-picker"  size="19" type="text" name="fec_has" id="fec_has" />
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+                                              
+                                          
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar">Buscar</button>
+                                              <a href="/investigacion/reportes/registrar/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+               <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+               <script type="text/javascript">
+                        $(document).ready(function(){
+
+                        $('select').select2();
+                       
+
+                   
+
+                        });
+                  </script>
+
+           
+
+                               
+             
+
+       

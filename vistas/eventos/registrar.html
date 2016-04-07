@@ -1,0 +1,294 @@
+<br><div class="row">
+                  <div class="col-lg-10">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="reg-eventos" name="reg_eventos" method="POST" action="/investigacion/eventos/crear/">
+                                   
+                                    
+                                      <div class="form-group ">
+                                          <label for="nom_evento" class="control-label col-lg-2">Nombre del Evento</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="nom_evento" name="nom_evento" type="text" required/>
+                                          </div>
+                                      </div>
+
+
+                                      <div class="form-group multiple-form-group" >
+                                          <label for="Fecha" class="control-label col-lg-2">Fecha</label>
+                                          <div class="col-lg-3">
+                                              <input type="date" name="fecha[]" id="fecha[]" class="form-control" min="{fechaactual}" required>
+                                          </div>
+
+                                          <label class="control-label col-lg-1">&nbsp;&nbsp;Desde</label>
+
+                                            <div class="col-lg-2">
+                                               <select class="form-control m-bot15" name="hora_desde[]" id="hora_desde[]"  required>
+                                                   <option value =""></option>
+                                                    <option value ="6">06:00</option>
+                                                    <option value ="7">07:00</option>
+                                                    <option value ="8">08:00</option>
+                                                    <option value ="9">09:00</option>
+                                                    <option value ="10">10:00</option>
+                                                    <option value ="11">11:00</option>
+                                                    <option value ="12">12:00</option>
+                                                    <option value ="13">13:00</option>
+                                                    <option value ="14">14:00</option>
+                                                    <option value ="15">15:00</option>
+                                                    <option value ="16">16:00</option>
+                                                    <option value ="17">17:00</option>
+                                                    <option value ="18">18:00</option>
+                                                    <option value ="19">19:00</option>
+                                                    <option value ="20">20:00</option>
+                                              
+                                             </select>
+                                            </div>
+
+                                             <label class="control-label col-lg-1">&nbsp;&nbsp;Hasta</label>
+
+                                            <div class="col-lg-2">
+                                               <select class="form-control m-bot15" name="hora_hasta[]" id="hora_hasta[]"  required>
+                                                   <option value =""></option>
+                                                    <option value ="6">06:00</option>
+                                                    <option value ="7">07:00</option>
+                                                    <option value ="8">08:00</option>
+                                                    <option value ="9">09:00</option>
+                                                    <option value ="10">10:00</option>
+                                                    <option value ="11">11:00</option>
+                                                    <option value ="12">12:00</option>
+                                                    <option value ="13">13:00</option>
+                                                    <option value ="14">14:00</option>
+                                                    <option value ="15">15:00</option>
+                                                    <option value ="16">16:00</option>
+                                                    <option value ="17">17:00</option>
+                                                    <option value ="18">18:00</option>
+                                                    <option value ="19">19:00</option>
+                                                    <option value ="20">20:00</option>
+                                              
+                                             </select>
+                                            </div>
+
+
+
+                                           <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+                                              </button></span>
+                                      </div>
+
+                                     
+
+                                       <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-2">Objetivos</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="obj_evento" id="obj_evento" rows="3"  ></textarea>
+                                            </div>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-2">Ponentes</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="pon_evento" id="pon_evento" rows="3"  ></textarea>
+                                            </div>
+                                        </div>
+
+                                         <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Status</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="est_evento" id="est_evento" required>
+                                              <option value =""></option>
+                                              <option value ="A">Aprobado</option>
+                                              <option value ="E">En Evaluación</option>
+                                              
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+                                     
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Participación</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="participacion" id="participacion" onchange="funsel2(this);" required>
+                                              <option value =""></option>
+                                              <option value ="1">Entrada Libre</option>
+                                              <option value ="2">Inversión</option>
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                       <div class="form-group " style="display:none" id="inver">
+                                          <label for="inversion" class="control-label col-lg-2">Inversión (Bs.)</label>
+                                          <div class="col-lg-6">
+                                              <input class=" form-control" id="inversion" name="inversion" type="number"/>
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Tipo de Evento</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_tipo" id="id_tipo" required>
+                                              <option value =""></option>
+                                              {tipoeventos}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Tipo de Público</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_publico" id="id_publico" required>
+                                              <option value =""></option>
+                                              {tipopublicos}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Espacio</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_espacio" id="id_espacio" required>
+                                              <option value =""></option>
+                                              {espacios}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                       <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Área Responsable</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_area" id="id_area" >
+                                              <option value =""></option>
+                                              {areas}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      
+
+
+                                      
+                                          
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar" >Agregar</button>
+                                              <a href="/investigacion/eventos/registrar/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+              <script type="text/javascript">
+                  function funsel2(sel) {
+                      var participacion = sel.value
+                      
+                      if (participacion == 2) {
+                         
+                          $('#inver').show('slow/2000/fast');
+                          
+                          
+                      }else{
+                          $('#inver').hide('slow/2000/fast');
+                          $("#inversion").val("");
+                      }
+                  }
+
+
+
+                 
+              </script>
+
+                  <script type="text/javascript">
+                        $(document).ready(function(){
+
+                        $('#id_area').select2();
+                        $('#est_evento').select2();
+                        $('#participacion').select2();
+                        $('#id_tipo').select2();
+                        $('#id_publico').select2();
+                        $('#id_espacio').select2();
+
+                   
+
+                        });
+                  </script>
+
+          
+
+               <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+    
+             
+
+                               
+             
+
+       

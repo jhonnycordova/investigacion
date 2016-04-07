@@ -1,0 +1,157 @@
+<br><div class="row">
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="reg-autoridades" method="POST" action="/investigacion/autoridades/crear/" enctype="multipart/form-data">
+                                  
+                                    
+                                      <div class="form-group ">
+                                          <label for="firstname" class="control-label col-lg-4">Nombres</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="nom_aut" name="nom_aut" type="text" />
+                                          </div>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="lastname" class="control-label col-lg-4">Apellidos</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="ape_aut" name="ape_aut" type="text" />
+                                          </div>
+                                      </div>
+
+                                       <div class="form-group">
+                                          <label class="control-label col-lg-4">Foto</label>
+                                          <div class=" col-lg-8" >
+                                              <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                      <img src="/investigacion/publico/admin/img/no-image.jpg" alt="" />
+                                                  </div>
+                                                  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                                  <div>
+                                                   <span class="btn btn-white btn-file">
+                                                   <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Seleccionar Imagen</span>
+                                                   <span class="fileupload-exists"><i class="fa fa-undo"></i> Cambiar</span>
+                                                   <input type="file" class="default" id="foto_aut" name="foto_aut" />
+                                                   </span>
+                                                      
+                                                  </div>
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+                                      
+                                          
+                                        <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="email_usu[]" class="control-label col-lg-4">Correo Electrónico</label>
+
+                                          <div class="form-group input-group col-lg-8">
+
+                                            <input type="text" name="email_aut[]" id="email_aut[]" class="form-control">
+                                              <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+                                              </button></span>
+                                          </div>
+                                        </div>
+                                       
+
+                                      <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="tel_usu[]" class="control-label col-lg-4">Teléfono</label>
+                                          <div class="form-group input-group col-lg-8">
+                                              <input class="form-control" id="tel_aut[]" name="tel_aut[]" type="text"  />   <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+                                              </button></span>
+                                          </div>
+                                      </div>
+                                    
+                                       <div class="form-group ">
+                                          <label for="cargos" class="control-label col-lg-4">Cargo</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="id_cargo" id="id_cargo">
+                                              <option value =""></option>
+                                              {cargos}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+                                
+
+                                    
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar">Registrar</button>
+                                              <a href="/investigacion/autoridades/registrar/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+              <script type="text/javascript">
+                  $(document).ready(function(){
+
+                  $('select').select2();
+             
+
+                  });
+                  </script>
+
+
+              <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+    

@@ -1,0 +1,129 @@
+<br><div class="row">
+                  <div class="col-lg-8">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="reg-noticias" method="POST" action="/investigacion/noticias/crear/" enctype="multipart/form-data" >
+                                   
+                                    
+                                      <div class="form-group ">
+                                          <label for="firstname" class="control-label col-lg-4">Título</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="titulo" name="titulo" type="text" />
+                                          </div>
+                                      </div>
+                                        <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-4">Descripción</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control ckeditor" name="des_not" id="des_not" rows="3"  ></textarea>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group ">
+                                            <label for="email_dec" class="control-label col-lg-4">Fecha</label>
+                                            <div class="col-lg-4">
+                                                <input class=" form-control" id="fec_not" name="fec_not" type="text" readonly="" value="{fec_not}" />
+                                            </div>
+                                        </div>
+
+                                                    
+
+                                      <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="img_not[]" class="control-label col-lg-4">Imágenes</label>
+                                          <div class="form-group input-group col-lg-8">
+                                              <input class="form-control" id="img_not[]" name="img_not[]" type="file"  />   <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+                                              </button></span>
+                                          </div>
+                                      </div>
+                                    
+                             
+
+                                     
+
+                                   
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar">Registrar</button>
+                                              <a href="/investigacion/noticias/registrar/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+             
+
+
+              <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+
+
+             
+
+
+
+
+             
+
+                               
+             
+
+       

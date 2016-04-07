@@ -1,0 +1,110 @@
+<br><div class="row">
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="mod-programas" method="POST" action="/investigacion/programas/editar/" >
+                                  
+                                      <input type="hidden" id="id_prog" name="id_prog" value="{id_prog}">
+                                      <div class="form-group ">
+                                          <label for="firstname" class="control-label col-lg-4">Nombre del Programa</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="des_prog" name="des_prog" type="text" value="{des_prog}" />
+                                          </div>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="lastname" class="control-label col-lg-4">Misión</label>
+                                          <div class="col-lg-8">
+                                              <textarea class="form-control" name="mision_prog" id="mision_prog" rows="6" cols="30">{mision_prog}</textarea>
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="lastname" class="control-label col-lg-4">Visión</label>
+                                          <div class="col-lg-8">
+                                              <textarea class="form-control" name="vision_prog" id="vision_prog" rows="6" cols="30">{vision_prog}</textarea>
+                                          </div>
+                                      </div>
+
+                                    
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar">Modificar</button>
+                                              <a href="/investigacion/programas/verdatos/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+              <script type="text/javascript">
+                  $(document).ready(function(){
+
+                  $('select').select2();
+             
+
+                  });
+                  </script>
+
+
+              <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+    

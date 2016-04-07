@@ -1,0 +1,46 @@
+RewriteBase /investigacion/
+RewriteEngine On
+
+RewriteRule ^$ controladores/Control_inicio.php
+RewriteRule ^inicio/ controladores/Control_inicio.php
+RewriteRule ^login/ controladores/Control_login.php
+RewriteRule ^gcontenido/ controladores/Control_gcontenido.php
+RewriteRule ^gauditorio/ controladores/Control_gauditorio.php
+RewriteRule ^grevista/ controladores/Control_grevista.php
+RewriteRule ^usuarios/ controladores/Control_usuarios.php
+RewriteRule ^permisos/ controladores/Control_permisos.php
+RewriteRule ^decanato/ controladores/Control_decanato.php
+RewriteRule ^autoridades/ controladores/Control_autoridades.php
+RewriteRule ^cargos/ controladores/Control_cargos.php
+RewriteRule ^tipoproy/ controladores/Control_tipoproy.php
+RewriteRule ^espinv/ controladores/Control_espinv.php
+RewriteRule ^programas/ controladores/Control_programas.php
+RewriteRule ^jornadas/ controladores/Control_jornadas.php
+RewriteRule ^carousel/ controladores/Control_carousel.php
+RewriteRule ^noticias/ controladores/Control_noticias.php
+RewriteRule ^centros/ controladores/Control_centros.php
+RewriteRule ^lineas/ controladores/Control_lineas.php
+RewriteRule ^investigadores/ controladores/Control_investigadores.php
+RewriteRule ^proyectos/ controladores/Control_proyectos.php
+RewriteRule ^reportes/ controladores/Control_reportes.php
+RewriteRule ^noticias_pub/ controladores/Control_noticias_pub.php
+RewriteRule ^decanato_pub/ controladores/Control_decanato_pub.php
+RewriteRule ^autoridades_pub/ controladores/Control_autoridades_pub.php
+RewriteRule ^jornadas_pub/ controladores/Control_jornadas_pub.php
+RewriteRule ^programas_pub/ controladores/Control_programas_pub.php
+RewriteRule ^centros_pub/ controladores/Control_centros_pub.php
+RewriteRule ^lineas_pub/ controladores/Control_lineas_pub.php
+RewriteRule ^proyectos_pub/ controladores/Control_proyectos_pub.php
+RewriteRule ^investigadores_pub/ controladores/Control_investigadores_pub.php
+RewriteRule ^areas/ controladores/Control_areas.php
+RewriteRule ^tipopub/ controladores/Control_tipopub.php
+RewriteRule ^tipoeve/ controladores/Control_tipoeve.php
+RewriteRule ^normas/ controladores/Control_normas.php
+RewriteRule ^eventos/ controladores/Control_eventos.php
+RewriteRule ^calendarios/ controladores/Control_calendarios.php
+RewriteRule ^causas/ controladores/Control_causas.php
+RewriteRule ^solic_esp/ controladores/Control_solic_esp.php
+RewriteRule ^solic_esp_pub/ controladores/Control_solic_esp_pub.php
+RewriteRule ^eventos_pub/ controladores/Control_eventos_pub.php
+RewriteRule ^calendarios_pub/ controladores/Control_calendarios_pub.php
+RewriteRule ^normas_pub/ controladores/Control_normas_pub.php

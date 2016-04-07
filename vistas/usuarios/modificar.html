@@ -1,0 +1,261 @@
+<br><div class="row">
+                  <div class="col-lg-6">
+                      <section class="panel">
+                          <header class="panel-heading">
+                            {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="reg-usuario" method="POST" action="/investigacion/usuarios/editar/">
+                                  <input type="hidden" id="id_usuario" name="id_usuario" value="{id_usuario}">
+                                   <div class="form-group ">
+                                      <label for="usuario" class="control-label col-lg-4">Nombre de Usuario</label>
+                                      <div class="col-lg-8 input-group " style="margin-top:-26px">
+                                          <input type="text" id="usuario" name="usuario" value="{usuario}" class="form-control" readonly="">
+                                          <span class="input-group-btn">
+                                            <button class="btn btn-primary" type="button" id="buscar" data-placement="bottom" data-toggle="tooltip" title="Buscar usuario para poder modificar"><i class="fa fa-search"></i></button>
+                                          </span>
+                                      </div>
+                                                                          
+                                    </div>
+                                    <div id="datos" >
+                                      <div class="form-group ">
+                                          <label for="firstname" class="control-label col-lg-4">Nombres</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="nom_usu" name="nom_usu" type="text" value="{nom_usu}" />
+                                          </div>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="lastname" class="control-label col-lg-4">Apellidos</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="ape_usu" name="ape_usu" type="text" value="{ape_usu}" />
+                                          </div>
+                                      </div>
+                                      
+                                      
+                                        <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="email_usu[]" class="control-label col-lg-4">Correo Electrónico</label>
+
+                                          {correos}
+                                        </div>
+                                       
+
+                                      <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="tel_usu[]" class="control-label col-lg-4">Teléfono</label>
+                                          {telefonos}
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="estado" class="control-label col-lg-4">Estado</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="estado" id="estado">
+                                              <option value="A" {Ac}>Activo</option>
+                                              <option value="I" {In}>Inactivo</option>
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+                                
+                                    </div>
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar">Modificar</button>
+                                              <a href="/investigacion/usuarios/verdatos/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+              <script type="text/javascript">
+                  $(document).ready(function(){
+
+                  $('select').select2();
+             
+
+                  });
+                  </script>
+              <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+
+
+              <script type="text/javascript">
+        // ==============================
+        // Standard Dialogs
+        $("alert").onclick = function () {
+            reset();
+            alertify.alert("Mensaje de Alerta! :D");
+            return false;
+        };
+
+        $("confirm").onclick = function () {
+            reset();
+            alertify.confirm("This is a confirm dialog", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        $("prompt").onclick = function () {
+            reset();
+            alertify.prompt("This is a prompt dialog", function (e, str) {
+                if (e) {
+                    alertify.success("You've clicked OK and typed: " + str);
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            }, "Default Value");
+            return false;
+        };
+
+        // ==============================
+        // Standard Dialogs
+        $("notification").onclick = function () {
+            reset();
+            alertify.log("Standard log message");
+            return false;
+        };
+
+        $("success").onclick = function () {
+            reset();
+            alertify.success("Success log message");
+            return false;
+        };
+
+        $("error").onclick = function () {
+            reset();
+            alertify.error("Error log message");
+            return false;
+        };
+
+        // ==============================
+        // Custom Properties
+        $("delay").onclick = function () {
+            reset();
+            alertify.set({ delay: 10000 });
+            alertify.log("Hiding in 10 seconds");
+            return false;
+        };
+
+        $("forever").onclick = function () {
+            reset();
+            alertify.log("Will stay until clicked", "", 0);
+            return false;
+        };
+
+        $("labels").onclick = function () {
+            reset();
+            alertify.set({ labels: { ok: "Accept", cancel: "Deny" } });
+            alertify.confirm("Confirm dialog with custom button labels", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        $("focus").onclick = function () {
+            reset();
+            alertify.set({ buttonFocus: "cancel" });
+            alertify.confirm("Confirm dialog with cancel button focused", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        $("order").onclick = function () {
+            reset();
+            alertify.set({ buttonReverse: true });
+            alertify.confirm("Confirm dialog with reversed button order", function (e) {
+                if (e) {
+                    alertify.success("You've clicked OK");
+                } else {
+                    alertify.error("You've clicked Cancel");
+                }
+            });
+            return false;
+        };
+
+        // ==============================
+        // Custom Log
+        $("custom").onclick = function () {
+            reset();
+            alertify.custom = alertify.extend("custom");
+            alertify.custom("I'm a custom log message");
+            return false;
+        };
+    </script>
+
+
+
+
+             
+
+                               
+             
+
+       

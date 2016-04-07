@@ -1,0 +1,182 @@
+ <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <li>
+                      <a class="active" href="/investigacion/{modelo}/index">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Inicio</span>
+                      </a>
+                  </li>
+
+                   <!--multi level menu start-->
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-sitemap"></i>
+                          <span>Decanato</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a href="/investigacion/decanato/infoDecanato/">General</a></li>
+                          <li class="sub-menu">
+                              <a  href="#">Autoridades</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/autoridades/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/autoridades/verdatos/" onclick="waitingDialog.show('Cargando Autoridades', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);">Ver Todas</a></li>
+                                  
+                              </ul>
+                          </li>
+                           <li class="sub-menu">
+                              <a  href="#">Programas</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/programas/verdatos/">Ver Programas</a></li>
+                                  
+                              </ul>
+                          </li>
+                          <li class="sub-menu">
+                              <a  href="boxed_page.html">Jornadas</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/jornadas/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/jornadas/verdatos/">Ver Todas</a></li>
+                                  
+                              </ul>
+                          </li>
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-picture-o"></i>
+                          <span>Carousel</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/carousel/registrar/">Agregar Imagen</a></li>
+                          <li><a  href="/investigacion/carousel/verdatos/">Ver Imágenes</a></li>
+                          
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-rss-square"></i>
+                          <span>Noticias</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/noticias/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/noticias/verdatos/">Ver Todas</a></li>
+                          
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tasks"></i>
+                          <span>Centros</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/centros/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/centros/verdatos/">Ver Todos</a></li>
+                          
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-random"></i>
+                          <span>Líneas</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/lineas/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/lineas/verdatos/">Ver Todas</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-folder-open-o"></i>
+                          <span>Proyectos</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/proyectos/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/proyectos/verdatos/" onclick="waitingDialog.show('Cargando Proyectos', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);">Ver Todos</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class=" fa fa-search"></i>
+                          <span>Investigadores</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/investigadores/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/investigadores/verdatos/" onclick="waitingDialog.show('Cargando Investigadores', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);">Ver Todos</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-print"></i>
+                          <span>Reportes</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/reportes/movimientos/">Movimientos</a></li>
+                      </ul>
+                  </li>
+                 
+                    <li class="sub-menu" style="display:{nosuper}" >
+                      <a href="javascript:;">
+                          <i class="fa fa-users"></i>
+                          <span>Usuarios</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/usuarios/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/usuarios/verdatos/"> Ver Todos</a></li>
+                          
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu"  style="display:{super}" >
+                      <a href="javascript:;">
+                          <i class="fa fa-users"></i>
+                          <span>Admin. de Usuarios</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/usuarios/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/usuarios/verdatos/"> Ver Todos</a></li>
+                          <li><a  href="/investigacion/permisos/asignarPermiso/"> Asignar Permisos</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tag"></i>
+                          <span>Parametrizar</span>
+                      </a>
+                      <ul class="sub">
+                          <li class="sub-menu">
+                              <a  href="#">Cargos de Aut.</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/cargos/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/cargos/verdatos/">Ver Todos</a></li>
+                                  
+                              </ul>
+                          </li>
+                          <li class="sub-menu">
+                              <a  href="#">Tipos de Proy.</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/tipoproy/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/tipoproy/verdatos/">Ver Todos</a></li>
+                                  
+                              </ul>
+                          </li>
+                           <li class="sub-menu">
+                              <a  href="#">Especialidades de Inv.</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/espinv/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/espinv/verdatos/">Ver Todos</a></li>
+                                  
+                              </ul>
+                          </li>
+                          
+                      </ul>
+                  </li>
+                  
+                  <!--multi level menu end-->
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>

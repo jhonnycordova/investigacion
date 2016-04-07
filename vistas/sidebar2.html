@@ -1,0 +1,133 @@
+ <aside>
+          <div id="sidebar"  class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu" id="nav-accordion">
+                  <li>
+                      <a class="active" href="/investigacion/{modelo}/index">
+                          <i class="fa fa-dashboard"></i>
+                          <span>Inicio</span>
+                      </a>
+                  </li>
+
+                   <!--multi level menu start-->
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-bullhorn"></i>
+                          <span>Eventos</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/eventos/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/eventos/verdatos/" onclick="waitingDialog.show('Cargando Eventos', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);">Ver Todos</a></li>
+                          
+                      </ul>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="/investigacion/solic_esp/verdatos/" >
+                          <i class="fa fa-book"></i>
+                          <span>Solicitudes</span>
+                      </a>
+                      
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-calendar"></i>
+                          <span>Calendarios</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/calendarios/auditorio/">Auditorio</a></li>
+                          <li><a  href="/investigacion/calendarios/salon/">Salón Usos Múltiples</a></li>
+                          
+                      </ul>
+                  </li>
+
+                   <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-print"></i>
+                          <span>Reportes</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/reportes/movimientos/">Movimientos</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu" style="display:{nosuper}">
+                      <a href="javascript:;" >
+                          <i class="fa fa-users"></i>
+                          <span>Usuarios</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/usuarios/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/usuarios/verdatos/">Ver Todos</a></li>
+                          
+                      </ul>
+                  </li>
+
+                    <li class="sub-menu" style="display:{super}">
+                      <a href="javascript:;">
+                          <i class="fa fa-users"></i>
+                          <span>Admin. de Usuarios</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="/investigacion/usuarios/registrar/">Agregar</a></li>
+                          <li><a  href="/investigacion/usuarios/verdatos/"> Ver Todos</a></li>
+                          <li><a  href="/investigacion/permisos/asignarPermiso/"> Asignar Permisos</a></li>
+                      </ul>
+                  </li>
+
+                   <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tag"></i>
+                          <span>Parametrizar</span>
+                      </a>
+                      <ul class="sub">
+                          <li class="sub-menu">
+                              <a  href="#">Normas</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/normas/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/normas/verdatos/">Ver Todas</a></li>
+                                  
+                              </ul>
+                          </li>
+                          <li class="sub-menu">
+                              <a  href="#">Tipos de Público</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/tipopub/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/tipopub/verdatos/">Ver Todos</a></li>
+                                  
+                              </ul>
+                          </li>
+                           <li class="sub-menu">
+                              <a  href="#">Tipos de Eventos</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/tipoeve/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/tipoeve/verdatos/">Ver Todos</a></li>
+                                  
+                              </ul>
+                          </li>
+                           <li class="sub-menu">
+                              <a  href="#">Áreas</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/areas/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/areas/verdatos/">Ver Todas</a></li>
+                                  
+                              </ul>
+                          </li>
+                           <li class="sub-menu">
+                              <a  href="#">Causas No Aprobac.</a>
+                              <ul class="sub">
+                                  <li><a  href="/investigacion/causas/registrar/">Agregar</a></li>
+                                  <li><a  href="/investigacion/causas/verdatos/">Ver Todas</a></li>
+                                  
+                              </ul>
+                          </li>
+                          
+                      </ul>
+                  </li>
+                  
+                  <!--multi level menu end-->
+
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>

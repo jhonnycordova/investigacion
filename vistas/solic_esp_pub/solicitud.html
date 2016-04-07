@@ -1,0 +1,310 @@
+<br>
+
+<div class="col-md-8" style="padding-left:0px;padding-right:0px;">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" align="center">{subtitulo}</h3>
+                        
+                    </div>
+                    {mensaje}
+                    <div class="panel-body">
+                    	<form class="cmxform form-horizontal tasi-form" id="reg_solic" name="reg_solic" method="POST" action="/investigacion/solic_esp_pub/crear/"  onSubmit="r = confirm('¿Está seguro de enviar esta solicitud?. Una vez generada la solicitud deberá guardarla o imprimirla.'); if(r==true){return true}else{return false};" >
+                                   
+                                    
+                                      <div class="form-group ">
+                                          <label for="nom_evento" class="control-label col-lg-2">Nombre del Evento</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="nom_evento" name="nom_evento" type="text" required/>
+                                          </div>
+                                      </div>
+
+
+                                      <div class="form-group multiple-form-group" >
+                                          <label for="Fecha" class="control-label col-lg-2">Fecha</label>
+                                          <div class="col-lg-3">
+                                              <input type="date" name="fecha[]" id="fecha[]" class="form-control" min="{fechaanticipada}" required>
+                                          </div>
+
+                                          <label class="control-label col-lg-1">&nbsp;&nbsp;Desde</label>
+
+                                            <div class="col-lg-2">
+                                               <select class="form-control m-bot15" name="hora_desde[]" id="hora_desde[]"  required>
+                                                   <option value =""></option>
+                                                    <option value ="6">06:00</option>
+                                                    <option value ="7">07:00</option>
+                                                    <option value ="8">08:00</option>
+                                                    <option value ="9">09:00</option>
+                                                    <option value ="10">10:00</option>
+                                                    <option value ="11">11:00</option>
+                                                    <option value ="12">12:00</option>
+                                                    <option value ="13">13:00</option>
+                                                    <option value ="14">14:00</option>
+                                                    <option value ="15">15:00</option>
+                                                    <option value ="16">16:00</option>
+                                                    <option value ="17">17:00</option>
+                                                    <option value ="18">18:00</option>
+                                                    <option value ="19">19:00</option>
+                                                    <option value ="20">20:00</option>
+                                              
+                                             </select>
+                                            </div>
+
+                                             <label class="control-label col-lg-1">&nbsp;&nbsp;Hasta</label>
+
+                                            <div class="col-lg-2">
+                                               <select class="form-control m-bot15" name="hora_hasta[]" id="hora_hasta[]"  required>
+                                                   <option value =""></option>
+                                                    <option value ="6">06:00</option>
+                                                    <option value ="7">07:00</option>
+                                                    <option value ="8">08:00</option>
+                                                    <option value ="9">09:00</option>
+                                                    <option value ="10">10:00</option>
+                                                    <option value ="11">11:00</option>
+                                                    <option value ="12">12:00</option>
+                                                    <option value ="13">13:00</option>
+                                                    <option value ="14">14:00</option>
+                                                    <option value ="15">15:00</option>
+                                                    <option value ="16">16:00</option>
+                                                    <option value ="17">17:00</option>
+                                                    <option value ="18">18:00</option>
+                                                    <option value ="19">19:00</option>
+                                                    <option value ="20">20:00</option>
+                                              
+                                             </select>
+                                            </div>
+
+
+
+                                           <span class="input-group-btn"><button type="button" class="btn btn-default btn-add">+
+                                              </button></span>
+                                      </div>
+
+                                     
+
+                                       <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-2">Objetivos</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="obj_evento" id="obj_evento" rows="3"  ></textarea>
+                                            </div>
+                                        </div>
+
+                                         <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-2">Ponentes</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="pon_evento" id="pon_evento" rows="3"  ></textarea>
+                                            </div>
+                                        </div>
+
+                                       
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Participación</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="participacion" id="participacion" onchange="funsel2(this);" required>
+                                              <option value =""></option>
+                                              <option value ="1">Entrada Libre</option>
+                                              <option value ="2">Inversión</option>
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                       <div class="form-group " style="display:none" id="inver">
+                                          <label for="inversion" class="control-label col-lg-2">Inversión (Bs.)</label>
+                                          <div class="col-lg-6">
+                                              <input class=" form-control" id="inversion" name="inversion" type="number"/>
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Tipo de Evento</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_tipo" id="id_tipo" required>
+                                              <option value =""></option>
+                                              {tipoeventos}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Tipo de Público</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_publico" id="id_publico" required>
+                                              <option value =""></option>
+                                              {tipopublicos}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Espacio</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_espacio" id="id_espacio" required>
+                                              <option value =""></option>
+                                              {espacios}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                        <div class="form-group ">
+                                          <label for="area" class="control-label col-lg-2">Área Responsable</label>
+                                          <div class="col-lg-6">
+                                            <select class="form-control m-bot15" name="id_area" id="id_area" >
+                                              <option value =""></option>
+                                              <option value =""></option>
+                                              {areas}
+                                              
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                      <div class="form-group ">
+                                          <label for="nom_evento" class="control-label col-lg-2">Nombres Solicitante</label>
+                                          <div class="col-lg-4">
+                                              <input class=" form-control" id="nom_solicitante" name="nom_solicitante" type="text" required/>
+                                          </div>
+                                          <label for="nom_evento" class="control-label col-lg-2">Apellidos Solicitante</label>
+                                          <div class="col-lg-4">
+                                              <input class=" form-control" id="ape_solicitante" name="ape_solicitante" type="text" required/>
+                                          </div>
+                                      </div>
+
+                                        <div class="form-group ">
+                                          <label for="nom_evento" class="control-label col-lg-2">Cédula Solicitante</label>
+                                          <div class="col-lg-4">
+                                              <input class=" form-control" id="ced_solicitante" name="ced_solicitante" type="text" minlength="8" maxlength="8" required/>
+                                          </div>
+                                          <label for="nom_evento" class="control-label col-lg-2">Tel. Solicitante</label>
+                                          <div class="col-lg-4">
+                                              <input class=" form-control" id="tel_solicitante" name="tel_solicitante" type="text" minlength="11" maxlength="11" required/>
+                                          </div>
+                                      </div>
+
+                                      <p style="color:red"><b>NOTA:</b> Una vez Generada la Solicitud no podrá cambiarla o Generarla de Nuevo. Se recomienda guardala o imprimirla una vez generada.</p>
+                                       <p style="color:red">Debe Solicitar el Espacio con un mínimo de 15 días de anticipación, entre los cuales dentro de los primeros 3 días debe mostrar el interés con el Decanato y comunicarse con nosotros. De lo contrario la solicitud será descartada automáticamente por el sistema.</p>
+
+
+
+                                      
+                                          
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit"  onclick="bloquear()" id="registrar" >Generar Solicitud</button>
+                                              <a href="/investigacion/solic_esp_pub/solicitud/" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+               
+                    </div>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                  function funsel2(sel) {
+                      var participacion = sel.value
+                      
+                      if (participacion == 2) {
+                         
+                          $('#inver').show('slow/2000/fast');
+                          
+                          
+                      }else{
+                          $('#inver').hide('slow/2000/fast');
+                          $("#inversion").val("");
+                      }
+                  }
+
+
+
+                 
+              </script>
+
+
+            <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+
+              <script type="text/javascript">
+                  $(document).ready(function(){
+
+                        $('#id_area').select2();
+                        $('#est_evento').select2();
+                        $('#participacion').select2();
+                        $('#id_tipo').select2();
+                        $('#id_publico').select2();
+                        $('#id_espacio').select2();
+             
+
+                  });
+              </script>
+
+              <script type="text/javascript">
+                  window.history.forward(1);
+              </script>
+
+
+       
+
+
+            
+
+  
+
+

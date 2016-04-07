@@ -1,0 +1,205 @@
+<br><div class="row">
+                  <div class="col-lg-7">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="mod-investigadores" method="POST" action="/investigacion/investigadores/editar/" enctype="multipart/form-data">
+                                  
+                                      <input type="hidden" id="id_investigador" name="id_investigador" value="{id_investigador}">
+                                      <div class="form-group ">
+                                          <label for="firstname" class="control-label col-lg-4">Nombres</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="nom_inv" name="nom_inv" type="text" value="{nom_inv}" />
+                                          </div>
+                                      </div>
+                                      <div class="form-group ">
+                                          <label for="lastname" class="control-label col-lg-4">Apellidos</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="ape_inv" name="ape_inv" type="text" value="{ape_inv}"/>
+                                          </div>
+                                      </div>
+
+                                       <div class="form-group">
+                                          <label class="control-label col-lg-4">Foto</label>
+                                          <div class=" col-lg-8" >
+                                              <div class="fileupload fileupload-new" data-provides="fileupload">
+                                                  <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                      <img src="/investigacion/publico/admin/img/investigadores/{foto_inv}" alt="" />
+                                                  </div>
+                                                  <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                                  <div>
+                                                   <span class="btn btn-white btn-file">
+                                                   <span class="fileupload-new"><i class="fa fa-paper-clip"></i> Seleccionar Imagen</span>
+                                                   <span class="fileupload-exists"><i class="fa fa-undo"></i> Cambiar</span>
+                                                   <input type="file" class="default" id="foto_inv" name="foto_inv" />
+                                                   </span>
+                                                      
+                                                  </div>
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+                                      
+                                      <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-4">Descripción</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="des_inv" id="des_inv" rows="3"  >{des_inv}</textarea>
+                                            </div>
+                                        </div>
+                                          
+                                        <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="email_usu[]" class="control-label col-lg-4">Correo Electrónico</label>
+
+                                          {correos}
+                                        </div>
+                                       
+
+                                      <div class="form-group multiple-form-group" data-max=3>
+                                          <label for="tel_usu[]" class="control-label col-lg-4">Teléfono</label>
+                                          {telefonos}
+                                      </div>
+                                    
+                                      <div class="form-group">
+                                          <label class="control-label col-lg-4">Especialidades</label>
+                                          <div class="col-lg-8">
+                                              <select multiple="multiple" class="multi-select" id="my_multi_select1" name="id_esp[]">
+                                                  {especialidades}
+                                                  {espactual}
+                                              </select>
+                                          </div>
+                                      </div>
+                                       <div class="form-group ">
+                                          <label for="cargos" class="control-label col-lg-4">Programa</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="id_prog" id="id_prog" onchange="funsel2(this);">
+                                              
+                                              {programaactual}
+                                              {programas}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+                                      <div class="form-group " id="cent" style="display:{hidden}">
+                                          <label for="cargos" class="control-label col-lg-4">Centro</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="id_centro" id="id_centro">
+                                              {centroactual}
+                                              {centros}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                        
+
+                                    
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar" >Modificar</button>
+                                              <a href="/investigacion/investigadores/verdatos/" onclick="waitingDialog.show('Cargando Investigadores', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);" class="btn btn-default">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+
+              <script type="text/javascript">
+                  $(document).ready(function(){
+
+                  $('select').select2();
+             
+
+                  });
+                  </script>
+
+
+              <script type="text/javascript">
+
+                    (function ($) {
+                      $(function () {
+
+                          var addFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+                              var $formGroupClone = $formGroup.clone();
+
+                              $(this)
+                                  .toggleClass('btn-default btn-add btn-danger btn-remove')
+                                  .html('–');
+
+                              $formGroupClone.find('input').val('');
+                              $formGroupClone.insertAfter($formGroup);
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') <= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', true);
+                              }
+                          };
+
+                          var removeFormGroup = function (event) {
+                              event.preventDefault();
+
+                              var $formGroup = $(this).closest('.form-group');
+                              var $multipleFormGroup = $formGroup.closest('.multiple-form-group');
+
+                              var $lastFormGroupLast = $multipleFormGroup.find('.form-group:last');
+                              if ($multipleFormGroup.data('max') >= countFormGroup($multipleFormGroup)) {
+                                  $lastFormGroupLast.find('.btn-add').attr('disabled', false);
+                              }
+
+                              $formGroup.remove();
+                          };
+
+                          var countFormGroup = function ($form) {
+                              return $form.find('.form-group').length;
+                          };
+
+                          $(document).on('click', '.btn-add', addFormGroup);
+                          $(document).on('click', '.btn-remove', removeFormGroup);
+
+                      });
+                  })(jQuery);
+              </script>
+
+              <script type="text/javascript">
+                  function funsel2(sel) {
+                      var id_prog = sel.value
+                      htttml = ''
+                      if (id_prog == '1') {
+                          $.getJSON('/investigacion/lineas/buscarCentros/', function(data) {
+                              htttml += '<option value=""></option>'
+                              for (var i = data.length - 1; i >= 0; i--) {
+                                  $.each( data[i] , function(k, v){
+                                   nombre = data[i]['nombrecentro']
+                                   idcen = data[i]['id_centro']
+                                  });
+                                  htttml += '<option value='+idcen+'>'+nombre+'</option>'
+                              };
+                              
+                              
+                          $('#cent').show('slow/2000/fast');
+                          $('#cent #id_centro').html(htttml);
+                          });
+                      }else{
+                        $('#cent').hide('slow/2000/fast');
+                        htttml += '<option value=""></option>'
+                        $('#cent #id_centro').html(htttml);
+                      };
+                  }
+
+                 
+              </script>
+    

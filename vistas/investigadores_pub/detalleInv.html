@@ -1,0 +1,49 @@
+<br>
+
+<div class="col-md-8" style="padding-left:0px;padding-right:0px;">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h3 class="panel-title" align="center">{titulo}</h3>
+                        
+                    </div>
+                    <div class="panel-body">
+                    	   <p style="text-align:justify;">{nom_inv} {ape_inv}</p>
+
+                         
+                           <br>
+                            <div style="float:left;margin-top:-19px;max-width:300px;" >{des_inv}</div>
+                            <div style="float:right;margin-top:-43px;"> <img style="width:200px;height:250px;" src="/investigacion/publico/admin/img/investigadores/{foto_inv}"></div>
+
+                            <br><br>
+                            <p style="text-align:justify;"><b>Especialidades:</b>      <ul>{especialidades}</ul></p>
+                            <p style="text-align:justify;display:{none}"><b>Contactos: <br></b>    Teléfonos: <ul style="display:{none}"> {telefonos}</ul>Correos:<ul>{correos}</ul></p>
+                           
+                           <br><br><br><br>
+                            <div class="panel with-nav-tabs panel-default" id="panel">
+                                <div class="panel-heading">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#tab1default1" data-toggle="tab">Proyectos</a></li>
+                                            
+                                           
+                                        </ul>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="tab1default1">
+                                           <ul id="proy">
+                                            
+                                                {proyectos}
+                                            </ul>
+
+                                        </div>
+                                        
+                                       
+                                        
+                                    </div>
+                                </div>
+                         </div>
+                    	
+                           
+                    </div>
+                </div>
+            </div>

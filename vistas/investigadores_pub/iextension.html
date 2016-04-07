@@ -1,0 +1,123 @@
+<br>
+<div class="col-md-8" style="padding-left:0px;padding-right:0px;">
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h3 class="panel-title" align="center">{titulo}</h3>
+                
+            </div>
+            <div class="panel-body">
+                   
+                         <div class="form-group " align="center" style="margin-left:93px" id="lin2">
+                            <label for="id_linea" class="control-label col-lg-1" style="margin-top:7px">Linea:</label>
+                              <div class="col-lg-10">
+                                <select class="form-control m-bot15" name="id_linea" id="id_linea" onchange="funsel4(this);">
+                                   
+                                   {lineas}
+                                </select>
+                              </div>
+                                          
+                        </div>
+
+                        <br><br>
+
+                     
+                  
+               
+                
+                  
+                       <div class="panel with-nav-tabs panel-default" id="panel">
+                                <div class="panel-heading">
+                                        <ul class="nav nav-tabs">
+                                            <li class="active"><a href="#tab1default1" data-toggle="tab">Extensionistas</a></li>
+                                            
+                                           
+                                        </ul>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade in active" id="tab1default1">
+                                           <ul id="inv">
+                                            
+                                                {extensionistas}
+                                            </ul>
+
+                                        </div>
+                                        
+                                       
+                                        
+                                    </div>
+                                </div>
+                         </div>
+                    
+                
+                   
+                <br> 
+                
+               
+               
+            
+                 
+            </div>
+        </div>
+</div>
+
+<script type="text/javascript">
+                 
+
+
+                  function funsel4(sel) {
+                      var id_linea = sel.value
+                   
+                      htttml4 = ''
+                      
+                      
+                      if (id_linea != '') {
+                          $.getJSON('/investigacion/investigadores_pub/buscarInvLinea/?id_linea='+id_linea, function(data) {
+                                
+                      
+                                for (var i = data.length - 1; i >= 0; i--) {
+                         
+                                    $.each( data[i] , function(k, v){
+                                     idinv = data[i]['id_investigador']
+                                     nom_inv = data[i]['nom_inv']
+                                     ape_inv = data[i]['ape_inv']
+                                     foto_inv = data[i]['foto_inv']
+                                     
+                                    });
+
+
+
+                                
+                                    htttml4 += '<div class="col-md-3" style=""><a href="/investigacion/investigadores_pub/detalleInv/?id_investigador='+idinv+'" class="thumbnail"><img style="width:150px;height:130px;" src="/investigacion/publico/admin/img/investigadores/'+foto_inv+'"></a>&nbsp;&nbsp;&nbsp;<a href="/investigacion/investigadores_pub/detalleInv/?id_investigador='+idinv+'">'+nom_inv+' '+ape_inv+'</a></div>'
+                                    
+                                };
+                             
+                          
+                          $('#panel #inv').html(htttml4);
+                          
+                          }).error(function(data) {
+                                window.alert('Error: ' + data.responseText);
+                           });
+
+                        
+
+                      }
+                  }
+
+
+
+
+
+                 
+              </script>
+              <script type="text/javascript">
+                  $(document).ready(function(){
+
+                  $('select').select2();
+             
+
+                  });
+    </script>
+
+
+

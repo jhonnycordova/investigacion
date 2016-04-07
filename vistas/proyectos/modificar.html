@@ -1,0 +1,287 @@
+<br><div class="row">
+                  <div class="col-lg-7">
+                      <section class="panel">
+                          <header class="panel-heading">
+                             {subtitulo}
+                          </header>
+                          <div class="panel-body">
+                              <div class="form">
+                                  <form class="cmxform form-horizontal tasi-form" id="reg-proyectos" method="POST" action="/investigacion/proyectos/editar/" >
+                                  
+                                      <input type="hidden" name="id_proyecto" id="id_proyecto" value="{id_proyecto}">
+                                      <div class="form-group ">
+                                          <label for="firstname" class="control-label col-lg-4">Titulo</label>
+                                          <div class="col-lg-8">
+                                              <input class=" form-control" id="tit_pro" name="tit_pro" type="text" value="{tit_pro}" />
+                                          </div>
+                                      </div>
+                                       <div class="form-group">
+                                            <label for="firstname" class="control-label col-lg-4">Objetivos</label>
+                                            <div class="col-lg-8">
+                                                <textarea class="form-control" name="obj_pro" id="obj_pro" rows="3"  >{obj_pro}</textarea>
+                                            </div>
+                                        </div>
+
+                                      
+                                     <div class="form-group">
+                                          <label class="control-label col-lg-4">Fecha de Inicio</label>
+                                          <div class="col-lg-6">
+
+                                              <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date=""  class="input-append date dpYears">
+                                                  <input type="text" readonly="" class="form-control" id="fec_ini_pro" name="fec_ini_pro" value="{fecha_ini}">
+                                                      <span class="input-group-btn add-on">
+                                                        <button class="btn btn-danger" type="button"><i class="fa fa-calendar"></i></button>
+                                                      </span>
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+
+                                      <div class="form-group">
+                                          <label class="control-label col-lg-4">Fecha de Culminación</label>
+                                          <div class="col-lg-6">
+
+                                              <div data-date-viewmode="years" data-date-format="dd-mm-yyyy" data-date=""  class="input-append date dpYears">
+                                                  <input type="text" readonly=""  class="form-control" id="fec_cul_pro" name="fec_cul_pro" value="{fecha_cul}">
+                                                      <span class="input-group-btn add-on">
+                                                        <button class="btn btn-danger" type="button"><i class="fa fa-calendar"></i></button>
+                                                      </span>
+                                              </div>
+                                              
+                                          </div>
+                                      </div>
+
+                                        <div class="form-group ">
+                                          <label for="cargos" class="control-label col-lg-4">Tipo de Proyecto</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="id_tipo_pro" id="id_tipo_pro" >
+                                              {tipoactual}
+                                              {tipos}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+                                      
+
+                                       <div class="form-group ">
+                                          <label for="cargos" class="control-label col-lg-4">Programa</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="id_prog" id="id_prog" onchange="funsel2(this);">
+                                              {programaactual}
+                                              {programas}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+                                      
+                                      <div class="form-group " id="cent" style="display:{hidden}">
+                                          <label for="cargos" class="control-label col-lg-4">Centro</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="id_centro" id="id_centro" onchange="funsel3(this);">
+                                              {centroactual}
+                                              {centros}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+
+                                       <div class="form-group " id="lin" >
+                                          <label for="cargos" class="control-label col-lg-4">Linea</label>
+                                          <div class="col-lg-8">
+                                            <select class="form-control m-bot15" name="id_linea" id="id_linea">
+                                              {lineaactual}
+                                              {lineas}
+                                            </select>
+                                          </div>
+                                          
+                                      </div>
+                                       <div class="form-group" id="inv" >
+                                          <label class="control-label col-lg-4">Investigadores</label>
+                                          <div class="col-lg-8">
+                                               <select class="form-control" multiple="" id="id_investigador" name="id_investigador[]">
+                                                {invactual}
+                                                {investigadores}
+                                                </select>
+                                          </div>
+                                      </div>
+                               
+                                      
+
+
+                                     
+                                     
+
+                                        
+
+                                    
+                                    <br>
+
+                                     <div class="form-group" align="center">
+                                          <div class="col-lg-offset-2 col-lg-10">
+                                              <button class="btn btn-danger" type="submit" id="registrar" onclick="waitingDialog.show('Modificando Proyecto', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);">Modificar</button>
+                                              <a href="/investigacion/proyectos/verdatos/" class="btn btn-default" onclick="waitingDialog.show('Cargando Proyectos', {dialogSize: 'sm', progressType: 'warning'});setTimeout(function () {waitingDialog.hide();}, 100000);">Cancelar</a>
+                                          </div>
+                                      </div>
+                                      
+                                  </form>
+                              </div>
+                          </div>
+                      </section>
+                  </div>
+              </div>
+
+              <script src="/investigacion/publico/admin/js/jquery-1.11.1.js"></script>
+               <script src="/investigacion/publico/admin/js/selectpicker.js"></script>
+              <script type="text/javascript">
+                  $(document).ready(function(){
+
+                  $('select').select2();
+             
+
+                  });
+                  </script>
+
+
+             
+
+              <script type="text/javascript">
+                  function funsel2(sel) {
+                      var id_prog = sel.value
+                      htttml = ''
+                      if (id_prog =='1') {
+
+                          $.getJSON('/investigacion/proyectos/buscarCentros/', function(data) {
+                              htttml += '<option value=""></option>'
+                              for (var i = data.length - 1; i >= 0; i--) {
+                                  $.each( data[i] , function(k, v){
+                                   nombre = data[i]['nombrecentro']
+                                   idcen = data[i]['id_centro']
+                                  });
+                                  htttml += '<option value='+idcen+'>'+nombre+'</option>'
+                              };
+                              
+                              
+                          $('#cent').show('slow/2000/fast');
+                          $('#cent #id_centro').html(htttml);
+                          }).error(function(data) {
+                                window.alert('Error: ' + data.responseText);
+                           });
+
+                        htttml=''
+                        $('#inv').hide('slow/2000/fast');
+                        htttml += '<option value=""></option>'
+                        $('#inv #id_investigador').html(htttml);
+
+                         htttml=''
+                        $('#lin').hide('slow/2000/fast');
+                        htttml += '<option value=""></option>'
+                        $('#lin #id_linea').html(htttml);
+
+
+
+                        /*  
+                          $.getJSON('/investigacion/proyectos/buscarInv/?id_prog='+id_prog, function(data) {
+                              htttml += '<option value=""></option>'
+                              for (var i = data.length - 1; i >= 0; i--) {
+                                  $.each( data[i] , function(k, v){
+                                   nombre = data[i]['nombrecentro']
+                                   idcen = data[i]['id_centro']
+                                  });
+                                  htttml += '<option value='+idcen+'>'+nombre+'</option>'
+                              };
+                              
+                              
+                          $('#inv').show('slow/2000/fast');
+                          $('#inv #my_multi_select1').html(htttml);
+                          });
+*/
+                      }else{
+                        htttml2 = ''
+                         $.getJSON('/investigacion/proyectos/buscarLineas/?id_prog='+id_prog, function(data) {
+                                for (var i = data.length - 1; i >= 0; i--) {
+                                    $.each( data[i] , function(k, v){
+                                     nombre = data[i]['nombrelinea']
+                                     idlinea = data[i]['id_linea']
+                                    });
+                                    htttml2 += '<option value=""></option><option value='+idlinea+'>'+nombre+'</option>'
+                                };
+                                
+                                
+                            $('#lin').show('slow/2000/fast');
+                            $('#lin #id_linea').html(htttml2);
+                            }).error(function(data) {
+                                window.alert('Error: ' + data.responseText);
+                           });
+                           
+                          htttml3 = ''
+                         $.getJSON('/investigacion/proyectos/buscarInv/?id_prog='+id_prog, function(data) {
+
+                                for (var i = data.length - 1; i >= 0; i--) {
+                                    $.each( data[i] , function(k, v){
+                                     nombre = data[i]['nombre']
+                                     idinv = data[i]['id_investigador']
+                                     apellido = data[i]['apellido']
+                                    });
+                                    htttml3 += '<option value='+idinv+'>'+nombre+' '+apellido+'</option>'
+                                };
+                                
+                                
+                            $('#inv').show('slow/2000/fast');
+                            $('#inv #id_investigador').html(htttml3);
+                            }).error(function(data) {
+                                window.alert('Error: ' + data.responseText);
+                           });
+                          
+                        $('#cent').hide('slow/2000/fast');
+                        htttml += '<option value=""></option>'
+                        $('#cent #id_centro').html(htttml);
+                      };
+                  }
+
+                  function funsel3(sel) {
+                        var id_centro = sel.value
+                        htttml  =''
+                        if (id_centro != '') {
+                          
+                            $.getJSON('/investigacion/proyectos/buscarLineas2/?id_centro='+id_centro, function(data) {
+                                for (var i = data.length - 1; i >= 0; i--) {
+                                    $.each( data[i] , function(k, v){
+                                     nombre = data[i]['nombrelinea']
+                                     idlinea = data[i]['id_linea']
+                                    });
+                                    htttml += '<option value=""></option><option value='+idlinea+'>'+nombre+'</option>'
+                                };
+                                
+                                
+                            $('#lin').show('slow/2000/fast');
+                            $('#lin #id_linea').html(htttml);
+                            }).error(function(data) {
+                                window.alert('Error: ' + data.responseText);
+                           });
+
+                              htttml3 = ''
+                              $.getJSON('/investigacion/proyectos/buscarInv2/?id_centro='+id_centro, function(data) {
+
+                                for (var i = data.length - 1; i >= 0; i--) {
+                                    $.each( data[i] , function(k, v){
+                                     nombre = data[i]['nombre']
+                                     idinv = data[i]['id_investigador']
+                                     apellido = data[i]['apellido']
+                                    });
+                                    htttml3 += '<option value='+idinv+'>'+nombre+' '+apellido+'</option>'
+                                };
+                                
+                                
+                            $('#inv').show('slow/2000/fast');
+                            $('#inv #id_investigador').html(htttml3);
+                            }).error(function(data) {
+                                window.alert('Error: ' + data.responseText);
+                           });
+                          };
+                    }
+
+                 
+              </script>
+
+              
+    
